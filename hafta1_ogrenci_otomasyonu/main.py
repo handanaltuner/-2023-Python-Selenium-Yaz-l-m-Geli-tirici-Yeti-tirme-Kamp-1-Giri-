@@ -15,36 +15,33 @@
 
 
 ogrencilerListesi = []
-programKapat = False
 
 def ogrenciEkle():
-    adSoyad=input("Ad Soyad Giriniz")
-    ogrencilerListesi(adSoyad)
+    print("Öğrenci ekleme işlemleri")
+    adSoyad=input("Ad Soyad Giriniz: ")
     ogrencilerListesi.append(adSoyad)
     ogrencilerListesi.index(adSoyad)
     print("Kayıt Başarı ile eklendi" )
+    print(ogrencilerListesi)
 
 def ogrenciSil():
-    adSoyad=input("Lütfen silinecek olan Ad ve Soyadı giriniz")
+    adSoyad=input("Lütfen silinecek olan Ad ve Soyadı giriniz: ")
     for ogrenci in ogrencilerListesi:
         if ogrenci==adSoyad:
             ogrencilerListesi.remove(adSoyad)
     print("Öğrenci Silindi")
 
 def cokluOgrenciEkleme():
-    ogrenciEkle=int(input("Eklemek istediğiniz öğrenci ad ve soyadını giriniz"))
+    ogrenciEkle=int(input("Eklemek istediğiniz öğrenci ad ve soyadını giriniz: "))
     for i in range(ogrenciEkle):
         ogrenciEkle(input("Eklemek istediğiniz öğrenci adını giriniz"))
-        if ogrenciEkle=="" and ogrenciEkle=="":
-            print("boş değer girdiğiniz için öğrenci eklenmedi")
-        else:
-            ogrenciEkle()
+        ogrenciler.append(cokluEkle)
     cokluOgrenciEkleme()
     print("Birden fazla öğrenci listeye eklendi")
 
 def ogrencileriListeleme():
-    for ogrenciler in range(len(ogrencilerListesi)):
-        print(ogrencilerListesi(ogrenciler))
+    for ogrenciler in range(len(ogrencilerListesi)): #ogrenciler dongusunde ne kadar dongu varsa o kadar donecek
+        print("{adSoyad[ogrenciler]}")
     print("Öğrenciler listendi ve ekrana yazdırıldı")
 
 def cokluOgrenciSilme():
@@ -69,6 +66,7 @@ def cokluOgrenciSilme():
 
 
 def menu():
+    print("\n"*2)
     fonksiyonListesi=(ogrenciEkle,ogrenciSil,cokluOgrenciEkleme,ogrencilerListesi,cokluOgrenciSilme)
     while True:
         print("1-Öğrenci İsim Soyisim ekle")
@@ -76,16 +74,20 @@ def menu():
         print("3-Birden fazla öğrenci ekleyin")
         print("4-Listedeki tüm öğrencileri ekrana yazdır")
         print("5-Listdeki birden fazla öğrenciyi silin")
-        seciminiz=int=(input("Lütfen yapmak istediğiniz işlemi seçiniz (0-5): "))
-        
-        
+        print("0-Programdan çık")
+        seciminiz=int(input("Lütfen yapmak istediğiniz işlemi seçiniz (0-5): "))
+        print("\n"*40) #boşluk bırakma
         if seciminiz<=5 and seciminiz>=1:
-             print("Geçerli işlem seçildi")
+            fonksiyonListesi[seciminiz-1]() #1Girdiğimde ilk değeri istiyorsak seçiminiz 1 azaltılacak, o yüzden -1 yaziyoruz. Bunlar da birer fonksiyon olduğu için () yaparız.
+            print("Geçerli işlem seçildi")
+            print("\n" * 2)
         elif seciminiz==0:
              print("Çıkış yapılıyor")
              break
         else:
             print("Lütfen seçim için 0 ile 5 arası bir rakam giriniz")
+            
+menu()
 
 
 
